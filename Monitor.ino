@@ -1,12 +1,12 @@
 //Project and code created by Cody Knutson  
     
 #include <Wire.h> //I2C library
-#include <LowPower.h> //FIO sleep library
+#include <LowPower.h> //Arduino sleep library https://github.com/rocketscream/Low-Power
 
 byte fetch_humidity_temperature(unsigned int *p_Humidity, unsigned int *p_Temperature);
 void print_float(float f, int num_digits);
 
-#define TRUE 1
+#define TRUE 1   //Lowpower.h commands
 #define FALSE 0 
 #define XBEE_SLEEP_PIN 9
 #define XBEE_DELAY 40
@@ -31,7 +31,7 @@ void loop(void)
    unsigned int H_dat, T_dat;
    float RH, T_C;
    
-   while(1)
+   while(1) 
    {
       _status = fetch_humidity_temperature(&H_dat, &T_dat);
       
