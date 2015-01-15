@@ -5,11 +5,11 @@ SoftwareSerial mySerial(3,2); // pin 2 = TX, pin 3 = RX (unused)
 
 void setup() 
 {
-Serial.begin(9600);
+Serial.begin(9600); //initializing serial COMs
 Serial.println("Ready!");
 mySerial.begin(9600); 
 splashScreen(); //Displays "Bee Sensor" on startup
-screenClear();
+screenClear();  //Clears the LCD screen
 }
 
 
@@ -17,11 +17,12 @@ screenClear();
 void loop()
 {
 
+ while (Serial.available() > 0) //if there's serial data coming into the serial lines from the Xbee 
  
-  
- while (Serial.available() > 0)
  {
-   mySerial.print((char)Serial.read());
+  
+   mySerial.print((char)Serial.read()); //then it will be printed to the LCD screen
+   
  }
 }
 
